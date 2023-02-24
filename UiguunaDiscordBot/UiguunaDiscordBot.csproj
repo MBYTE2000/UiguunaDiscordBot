@@ -5,7 +5,33 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Platforms>AnyCPU;x64;x86</Platforms>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="libopus.dll" />
+    <None Remove="libopus.dll.md5" />
+    <None Remove="libopus.dll.md5.sig" />
+    <None Remove="libopus.dll.sha1" />
+    <None Remove="libopus.dll.sha1.sig" />
+    <None Remove="libopus.dll.sha256" />
+    <None Remove="libopus.dll.sha256.sig" />
+    <None Remove="libopus.dll.sha384" />
+    <None Remove="libopus.dll.sha384.sig" />
+    <None Remove="libopus.dll.sha512" />
+    <None Remove="libopus.dll.sha512.sig" />
+    <None Remove="libsodium.dll" />
+    <None Remove="libsodium.dll.md5" />
+    <None Remove="libsodium.dll.md5.sig" />
+    <None Remove="libsodium.dll.sha1" />
+    <None Remove="libsodium.dll.sha1.sig" />
+    <None Remove="libsodium.dll.sha256" />
+    <None Remove="libsodium.dll.sha256.sig" />
+    <None Remove="libsodium.dll.sha384" />
+    <None Remove="libsodium.dll.sha384.sig" />
+    <None Remove="libsodium.dll.sha512" />
+    <None Remove="libsodium.dll.sha512.sig" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Discord.Addons.Hosting" Version="5.2.0" />
@@ -13,6 +39,15 @@
     <PackageReference Include="Discord.Net.Commands" Version="3.9.0" />
     <PackageReference Include="Discord.Net.Core" Version="3.9.0" />
     <PackageReference Include="Discord.Net.WebSocket" Version="3.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="vnext_natives_win32_x64.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

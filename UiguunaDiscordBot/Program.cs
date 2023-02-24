@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
+using UiguunaDiscordBot.Services;
 
 namespace UiguunaDiscordBot
 {
@@ -35,6 +36,7 @@ namespace UiguunaDiscordBot
                         LogLevel = LogSeverity.Debug,
                         AlwaysDownloadUsers = true,
                         MessageCacheSize = 200,
+                        GatewayIntents = GatewayIntents.All
                     };
 
                     config.Token = context.Configuration["Token"];
@@ -47,9 +49,15 @@ namespace UiguunaDiscordBot
                 })
                 .ConfigureServices((context, services) =>
                 {
-                    //services.AddHostedService<CommandHandler>();
+                    services.AddHostedService<CommandHandler>();
                 })
                 .UseConsoleLifetime();
+
+            var host = builder.Build();
+            using (host) 
+            {
+                await host.RunAsync();
+            }
         }
     }
 }
