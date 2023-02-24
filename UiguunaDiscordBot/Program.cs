@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using UiguunaDiscordBot.Services;
+using Victoria;
 
 namespace UiguunaDiscordBot
 {
@@ -49,6 +50,9 @@ namespace UiguunaDiscordBot
                 })
                 .ConfigureServices((context, services) =>
                 {
+                    services.AddLavaNode(x => {
+                        x.SelfDeaf = false;
+                    });
                     services.AddHostedService<CommandHandler>();
                 })
                 .UseConsoleLifetime();
