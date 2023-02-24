@@ -13,14 +13,7 @@ namespace UiguunaDiscordBot.Modules
         [Command("ping")]
         public async Task PingAsync() 
         {
-            if (Context.Message.Author.Id == 510338988188631041)
-            {
-                await this.Context.Channel.SendMessageAsync("Соси");
-            }
-            else
-            {
-                await this.Context.Channel.SendMessageAsync("pong");
-            }
+            await this.Context.Channel.SendMessageAsync("pong");
         } 
 
         [Command("join", RunMode = RunMode.Async)]
